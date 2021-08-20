@@ -1,12 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="index.css">
-  </head>
-  <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>DNA Extraction Virtual Lab</title>
+</head>
+<body>
+  <div class="welcome-screen">
+    <div class="contain">
+      <div class="welcome-header"><i>Welcome to</i> <b>DNA Extraction Virtual Laboratory</b></div>
+      <button type="button" onclick="addAnimation('.welcome-screen', 'animateLeft')">Enter The Laboratory!</button>
+    </div>
+  </div>
+</body>
+<script src="./randomBgAssets.js"></script>
+<script>
+  const addAnimation = (element, animationName ) => {
+    document.querySelector(element).classList.add(animationName);
+    setTimeout(() => { document.querySelector(element).classList.add('hide') }, 800)
+  }
+</script>
 </html>
