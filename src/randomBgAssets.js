@@ -1,10 +1,7 @@
-const assetArray = [ '../assets/beaker.svg', '../assets/magnifying-glass.svg', '../assets/microscope.svg', '../assets/molecule.svg', '../assets/test-tubes.svg', '../assets/v-flask.svg' ]
+const assetArray = [ '../assets/dna1.svg', '../assets/dna2.svg', '../assets/microscope.svg', '../assets/molecule.svg', '../assets/dna3.svg' ]
 
 let bg = document.querySelector(".welcome-screen");
-
-// const getRandom = num => {
-//     return Math.random *
-// }
+let lab = document.querySelector(".lab");
 
 const randomLocationAndSize = (width, height) => {
     return { X: Math.floor(Math.random() * width), Y: Math.floor(Math.random() * height), Size: Math.floor((Math.random() * 100 + 20)) }
@@ -12,10 +9,13 @@ const randomLocationAndSize = (width, height) => {
 
 const appendAssets = (width, height, path) => {
     const { X, Y, Size } = randomLocationAndSize(width, height)
-    console.log(randomLocationAndSize(300, 200));
-    bg.innerHTML += `
-        <object data='${path}' width='${Size}px' height='${Size}px' style="position: fixed; top: ${ Y }px; left: ${ X }px; fill: #fff; opacity: .6"></object>
-    `;
+    const bgs =  [ bg, lab ]
+    
+    bgs.forEach(each => {
+        each.innerHTML += `
+            <object data='${path}' width='${Size}px' height='${Size}px' style="position: fixed; top: ${ Y }px; left: ${ X }px; opacity: .4"></object>
+        `;
+    })
 }
 
 assetArray.forEach(item => {
